@@ -118,3 +118,13 @@ const decoded = decodeBrailleBitString(braille);
 console.log("Braille to Base64:");
 console.log(decoded);
 
+function looksLikeBase64(str) {
+  return /^[A-Za-z0-9+/=\n\r]+$/.test(str);
+}
+
+console.log("Looks like Base64?", looksLikeBase64(decoded));
+
+const plaintext = Buffer.from(decoded, "base64").toString("utf8");
+
+console.log("\nBase64 to plaintext:");
+console.log(plaintext);
