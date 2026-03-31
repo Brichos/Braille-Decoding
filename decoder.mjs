@@ -128,3 +128,21 @@ const plaintext = Buffer.from(decoded, "base64").toString("utf8");
 
 console.log("\nBase64 to plaintext:");
 console.log(plaintext);
+
+
+const output = `# Decoding Result
+
+Braille → Base64
+\`\`\`
+${decoded}
+\`\`\`
+
+Base64 → plaintext 
+\`\`\`
+${plaintext}
+\`\`\`
+`;
+
+fs.writeFileSync("output.md", output, "utf-8");
+
+console.log("Written to output.md");
